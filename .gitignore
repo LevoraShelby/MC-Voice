@@ -1,0 +1,5 @@
+server/bin/
+client/bin/
+test\ voice\ binaries/
+spigot-api-*jar
+compile\ test/

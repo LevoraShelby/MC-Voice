@@ -1,0 +1,12 @@
+once a player connects to the MC server, they are messaged a one-time-pass (OTP). This OTP is a 5-character long, lowercase, alpha-numeric string, excluding the characters 'l' and 'o' ('l', because it may resemble '1' and 'o' because it can be homophonous with '0').
+
+the player sends this OTP to the voice server.
+
+OTPs expire after 3 minutes or when their associated player quits the server, whichever comes first.
+
+if an OTP expires while its associated player is still on the server, the server messages and associates to that player a new OTP.
+
+the voice server, if it receives a valid (and therefore unexpired) OTP, will associate the client sending the OTP with the player who received it. the voice server knows player-to-OTP associations because it runs on the same process as the MC server plugin.
+
+
+server says "we're resetting your token, here's your new one" to everyone every maybe 10 minutes. If a client doesn't respond with some acknowledgement, the server sends it again. server message should probably come with something that uniquely identifies each reset, so that if a client's acknowledgement doesn't reach and the server sends the message to them again, the client knows that it is the same reset.
